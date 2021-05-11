@@ -11,9 +11,25 @@ def kernighan_lin(G, seed):
     KL = community.kernighan_lin_bisection(G, seed = seed)
     return list(map(lambda x: 0 if x in KL[0] else 1, G.nodes))
 
+def label_propagation(G, seed):
+    LP = community.asyn_lpa_communities(G)
+    LP_list = list(LP)
+
+    labeling = []
+    for node in G.nodes:
+        for c in LP_list:
+            if node in c:
+                labeling.append(min(c))
+
+    return labeling
+
+
 KL_labeling = kernighan_lin(G, 10)
+LP_labeling = label_propagation(G, 0)
+
+print(LP_labeling)
 
 # Normalized Mutual Information
-score = normalized_mutual_info_score(labeling, KL_labeling)
+score = normalized_mutual_info_score(labeling, LP_labeling)
 
 print(score)
