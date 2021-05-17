@@ -6,6 +6,8 @@ name = "pypi"
 [packages]
 networkx = "*"
 sklearn = "*"
+infomap = "*"
+cdlib = "*"
 
 [dev-packages]
 
