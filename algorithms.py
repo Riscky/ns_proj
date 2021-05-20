@@ -15,9 +15,14 @@ def label_propagation(G, seed):
     LP_list = list(LP)
     return NodeClustering(LP_list, G)
 
+# TODO fix infomap
 def info_map(G, seed):
     # TODO: pass seed
     return algorithms.infomap(G)
 
+def louvain(G, seed):
+    # TODO: pass seed
+    return algorithms.louvain(G)
+
 def get():
-    return [kernighan_lin, label_propagation, info_map]
+    return [kernighan_lin, label_propagation, louvain]

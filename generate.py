@@ -9,12 +9,4 @@ for size in [100, 500]:
     name = f'LFR_N{size}_ad5_mc50_mu{mu}'
 
     # save G to disk
-    nx.write_adjlist(G, f'graphs/{name}')
-
-    # save communities to disk
-    firsts = filter(lambda x: min(G.nodes[x]["community"]) == x, G.nodes)
-    groups = list(map(lambda x: list(G.nodes[x]["community"]), firsts))
-
-    with open(f'communities/{name}', 'w') as file:
-        json.dump(groups, file)
-
+    nx.write_gpickle(G, f'graphs/{name}')

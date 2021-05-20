@@ -8,11 +8,11 @@ from cdlib import NodeClustering
 import load
 import algorithms
 
+#graphs = [datasets.fetch_network_ground_truth(net_name='karate_club', net_type='networkx')]
 graphs = load.load_graphs()
 
 for (graph, ground_truth) in graphs:
     for algorithm in algorithms.get():
         result = algorithm(graph, 0)
-        print(result)
         score = ground_truth.normalized_mutual_information(result)
         print(score)

@@ -9,14 +9,12 @@ def load_graphs():
     graphs = []
 
     for name in items:
-        G = nx.read_adjlist(f'graphs/{name}')
+        G = nx.read_gpickle(f'graphs/{name}')
 
-        with open(f'communities/{name}', 'r') as file:
-            data = file.read()
-
-        clustering = json.loads(data)
-
-        ground_truth = NodeClustering(clustering, G)
+        # create NodeClustering object from community labels
+        firsts = filter(lambda x: min(G.nodes[x]["community"]) == x, G.nodes)
+        groups = list(map(lambda x: list(G.nodes[x]["community"]), firsts))
+        ground_truth = NodeClustering(groups, G)
 
         graphs.append((G, ground_truth))
 

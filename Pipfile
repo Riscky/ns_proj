@@ -8,6 +8,7 @@ networkx = "*"
 sklearn = "*"
 infomap = "*"
 cdlib = "*"
+wurlitzer = "*"
 
 [dev-packages]
 
