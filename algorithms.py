@@ -5,7 +5,6 @@ from cdlib import NodeClustering
 def kernighan_lin(G, seed):
     # TODO: bisect more then once
     KL = community.kernighan_lin_bisection(G, seed = seed)
-    print(KL)
     return NodeClustering(KL, G)
 
 
@@ -24,5 +23,8 @@ def louvain(G, seed):
     # TODO: pass seed
     return algorithms.louvain(G)
 
+def fluid(G, seed):
+    return algorithms.async_fluid(G, 20)
+
 def get():
-    return [kernighan_lin, label_propagation, louvain]
+    return [kernighan_lin, label_propagation, louvain, fluid]
