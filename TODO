@@ -1,6 +1,5 @@
 [ ] timing?
     (https://docs.python.org/3/library/time.html#time.process_time > process time)
 [x] generate LFR's
-[ ] generate single component LFR's
+[x] generate single component LFR's
 [x] algorithmes
-[ ] eigen algorithme

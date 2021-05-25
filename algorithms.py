@@ -27,4 +27,9 @@ def fluid(G, seed):
     return algorithms.async_fluid(G, 20)
 
 def get():
-    return [kernighan_lin, label_propagation, louvain, fluid]
+    return {
+        "kernighan-lin": kernighan_lin,
+        "label propagation": label_propagation,
+        "louvain": louvain,
+        "fluid": fluid
+    }

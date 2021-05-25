@@ -12,7 +12,9 @@ import algorithms
 graphs = load.load_graphs()
 
 for (graph, ground_truth) in graphs:
-    for algorithm in algorithms.get():
+    for name, algorithm in algorithms.get().items():
         result = algorithm(graph, 0)
         score = ground_truth.normalized_mutual_information(result)
+
+        print(name)
         print(score)
