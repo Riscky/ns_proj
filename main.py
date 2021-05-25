@@ -16,5 +16,6 @@ for (graph, ground_truth) in graphs:
         result = algorithm(graph, 0)
         score = ground_truth.normalized_mutual_information(result)
 
+        print(len(graph.nodes()))
         print(name)
         print(score)

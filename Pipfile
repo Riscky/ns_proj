@@ -9,8 +9,13 @@ sklearn = "*"
 infomap = "*"
 cdlib = "*"
 wurlitzer = "*"
+leidenalg = "*"
+python-igraph = "*"
 
 [dev-packages]
 
 [requires]
 python_version = "3.8"
+
+[pipenv]
+allow_prereleases = true
