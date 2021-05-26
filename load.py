@@ -16,6 +16,6 @@ def load_graphs():
         groups = list(map(lambda x: list(G.nodes[x]["community"]), firsts))
         ground_truth = NodeClustering(groups, G)
 
-        graphs.append((G, ground_truth))
+        graphs.append((name, G, ground_truth))
 
     return graphs
