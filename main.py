@@ -14,11 +14,13 @@ graph_info = []
 results = []
 
 with open('results.csv', 'a') as file:
-    file.write('graph name, algorithm, score, time \n')
+    file.write('graph name, algorithm, score, time\n')
 
     for graph_name in load.graphs():
         (graph, ground_truth) = load.load(graph_name)
-        graph_info.append((graph_name, len(graph.nodes), len(graph.edges)))
+        info = (graph_name, len(graph.nodes), len(graph.edges))
+        print(info)
+        graph_info.append(info)
 
         for name, algorithm in algorithms.get().items():
             before = time.process_time()
@@ -26,6 +28,9 @@ with open('results.csv', 'a') as file:
             after = time.process_time()
             score = ground_truth.normalized_mutual_information(result)
 
-            file.write(f'{graph_name}, {name}, {score.score}, {after-before} \n')
+            file.write(f'{graph_name}, {name}, {score.score}, {after-before}\n')
 
-print(graph_info)
+with open('graph.csv', 'a') as file:
+    file.write('graph name, nodes, edges\n')
+    for (name, nodes, edge) in graph_info:
+        file.write(f'{name}, {nodes}, {edges}\n')
