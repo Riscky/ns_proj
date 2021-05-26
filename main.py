@@ -10,16 +10,14 @@ import csv
 import load
 import algorithms
 
-#graphs = [datasets.fetch_network_ground_truth(net_name='karate_club', net_type='networkx')]
-graphs = load.load_graphs()
-
 graph_info = []
 results = []
 
 with open('results.csv', 'a') as file:
     file.write('graph name, algorithm, score, time \n')
 
-    for (graph_name, graph, ground_truth) in graphs:
+    for graph_name in load.graphs():
+        (graph, ground_truth) = load.load(graph_name)
         graph_info.append((graph_name, len(graph.nodes), len(graph.edges)))
 
         for name, algorithm in algorithms.get().items():
