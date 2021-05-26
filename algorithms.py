@@ -13,6 +13,9 @@ def info_map(G):
 def louvain(G):
     return algorithms.louvain(G)
 
+def leiden(G):
+    return algorithms.leiden(G)
+
 def fluid(G):
     return algorithms.async_fluid(G, 25)
 
@@ -21,5 +24,6 @@ def get():
         "label propagation": label_propagation,
         "infomap": info_map,
         "louvain": louvain,
-        "fluid": fluid
+        "fluid": fluid,
+        "leiden": leiden
     }
