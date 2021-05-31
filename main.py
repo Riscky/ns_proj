@@ -32,5 +32,5 @@ with open('results.csv', 'a') as file:
 
 with open('graph.csv', 'a') as file:
     file.write('graph name, nodes, edges\n')
-    for (name, nodes, edge) in graph_info:
+    for (name, nodes, edges) in graph_info:
         file.write(f'{name}, {nodes}, {edges}\n')
